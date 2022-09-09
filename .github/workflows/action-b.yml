@@ -14,9 +14,8 @@ jobs:
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
 
-      - name: 'Run az commands'
-        run: |
-          az account show
-          az group list
-          pwd 
+      - uses: azure/setup-helm@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }} # only needed if version is 'latest'
+        id: install
       
