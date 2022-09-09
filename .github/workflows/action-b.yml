@@ -1,0 +1,22 @@
+
+name: test azure & helm
+on:
+  push:
+
+jobs:
+  setup-up-azure-resources:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Azure login
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - name: 'Run az commands'
+        run: |
+          az account show
+          az group list
+          pwd 
+      
