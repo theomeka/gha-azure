@@ -14,18 +14,23 @@ jobs:
         uses: azure/login@v1
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
-
-<<<<<<< HEAD
-      - uses: azure/setup-helm@v3
+      - uses: azure/setup-kubectl@v3
         with:
-          token: ${{ secrets.GITHUB_TOKEN }} # only needed if version is 'latest'
+          version: '<version>' # default is latest stable
         id: install
+
+      - uses: azure/aks-set-context@v3
+          with:
+            resource-group: 'ohm-gha'
+            cluster-name: 'ohm-gha'
+            admin: 'false'
+            use-kubelogin: 'true'  
+
+      -run: |
+          "kubectl get node"
+      # - name: setup helm
+      #   uses: azure/setup-helm@v3
+      #   with:
+      #     token: ${{ secrets.GITHUB_TOKEN }} # only needed if version is 'latest'
+      #   id: install
       
-=======
-      - name: 'Run az commands'
-        run: |
-          az account show
-          az group list
-          pwd 
-      
->>>>>>> 6119f98811d7b8fefcce8b08b742b444b50a744c
