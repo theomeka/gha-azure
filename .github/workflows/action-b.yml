@@ -35,5 +35,5 @@ jobs:
         with:
           version: 'latest'
           token: ${{ secrets.GITHUB_TOKEN }} # only needed if version is 'latest'
-        id: install helm
+        id: install_helm
       
