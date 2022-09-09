@@ -23,8 +23,8 @@ jobs:
         with:
           resource-group: 'ohm-gha'
           cluster-name: 'ohm-gha'
-          admin: 'false'
-          use-kubelogin: 'true'  
+          # admin: 'false'
+          # use-kubelogin: 'true'  
 
       - run: |
           kubectl get node
