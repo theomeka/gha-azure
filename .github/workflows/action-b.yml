@@ -14,10 +14,6 @@ jobs:
         uses: azure/login@v1
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
-      - uses: azure/setup-kubectl@v3
-        with:
-          version: 'latest' # default is latest stable
-        id: install
 
       - uses: azure/aks-set-context@v3
         with:
@@ -25,13 +21,19 @@ jobs:
           cluster-name: 'ohm-gha'
           # admin: 'false'
           # use-kubelogin: 'true'  
+      - uses: azure/setup-kubectl@v3
+        with:
+          version: 'latest' # default is latest stable
+        id: install
 
-      - run: |
+      - name: test with kubectl
+        run: |
           kubectl get node
+
       - name: setup helm
         uses: azure/setup-helm@v3
         with:
           version: 'latest'
-          # token: ${{ secrets.GITHUB_TOKEN }} # only needed if version is 'latest'
+          token: ${{ secrets.GITHUB_TOKEN }} # only needed if version is 'latest'
         id: install
       
