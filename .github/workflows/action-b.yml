@@ -20,11 +20,11 @@ jobs:
         id: install
 
       - uses: azure/aks-set-context@v3
-          with:
-            resource-group: 'ohm-gha'
-            cluster-name: 'ohm-gha'
-            admin: 'false'
-            use-kubelogin: 'true'  
+        with:
+          resource-group: 'ohm-gha'
+          cluster-name: 'ohm-gha'
+          admin: 'false'
+          use-kubelogin: 'true'  
 
       -run: |
           kubectl get node
