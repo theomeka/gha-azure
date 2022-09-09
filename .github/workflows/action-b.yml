@@ -27,7 +27,7 @@ jobs:
             use-kubelogin: 'true'  
 
       -run: |
-          "kubectl get node"
+          kubectl get node
       # - name: setup helm
       #   uses: azure/setup-helm@v3
       #   with:
