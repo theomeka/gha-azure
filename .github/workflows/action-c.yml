@@ -1,24 +1,41 @@
-# File: .github/workflows/workflow.yml
+name: Configure Azure environment
 
-on: [push]
-
-name: AzureCLISample
+on: 
+  pull_request:
+    types: [labeled]
 
 jobs:
 
-  build-and-deploy:
+  setup-up-azure-aks:
     runs-on: ubuntu-latest
+    if: contains(github.event.pull_request.labels.*.name, 'spin up environment')
     steps:
-
-    - name: Azure Login
-      uses: azure/login@v1
-      with:
-        creds: ${{ secrets.AZURE_CREDENTIALS }}
-
-    - name: Azure CLI script
-      uses: azure/CLI@v1
-      with:
-        azcliversion: 2.30.0
-        inlineScript: |
-          az group create --name ohm-gha --location eastus
-          az aks create --resource-group ohm-gha --name ohm-gha --node-count 1 --generate-ssh-keys
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Azure Login
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+      - name: Azure CLI script
+        uses: azure/CLI@v1
+        with:
+          azcliversion: 2.30.0
+          inlineScript: |
+            az group create --name ohm-gha --location eastus
+            az aks create --resource-group ohm-gha --name ohm-gha --node-count 1 --generate-ssh-keys
+          
+  destroy-up-azure-aks:
+    runs-on: ubuntu-latest
+    if: contains(github.event.pull_request.labels.*.name, 'destroy environment')
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Azure login
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+      - name: Destroy Azure environment
+        if: success()
+        run: |
+          az group delete --name ohm-gha --subscription ${{secrets.AZURE_SUBSCRIPTION_ID}} --yes
+          az group delete --name MC_ohm-gha_ohm-gha_eastus --subscription ${{secrets.AZURE_SUBSCRIPTION_ID}} --yes
