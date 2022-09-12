@@ -15,12 +15,12 @@ jobs:
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
 
-     - name: CREATE aks
+      - name: CREATE aks
         uses: azure/CLI@v1
         with:
           azcliversion: 2.0.72
           inlineScript: |
-          az aks create \
+            az aks create \
               --resource-group ohm-gha  \
               --name ohm-gha \
               --location  eastus \
