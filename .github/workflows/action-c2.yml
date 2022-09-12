@@ -1,0 +1,14 @@
+name: test event
+
+on: 
+  push:
+
+jobs:
+
+  setup-up-azure-aks:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        run: |
+          echo $github.event.pull_request.labels.*.name
+
