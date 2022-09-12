@@ -21,8 +21,7 @@ jobs:
           azcliversion: 2.0.72
           inlineScript: |
             az aks create \
-              --resource-group ohm-gha  \
-              --name ohm-gha \
-              --location  eastus \
+              --resource-group "ohm-gha"  \
+              --name "ohm-gha" \
               --location  eastus \
               --node-count  1 
