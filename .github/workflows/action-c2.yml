@@ -11,7 +11,7 @@ jobs:
     steps:
       - name: Checkout repository
         env:
-          SEETEXT: ${{github.event.label.name}}
+          SEETEXT: contains(github.event.pull_request.labels.*.name, 'spin up environment')
         run: |
           echo $SEETEXT
 
