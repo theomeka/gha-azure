@@ -1,4 +1,4 @@
-# Action-b
+# GitHub Action for test deploy service on Azure
 
-[action-b.yml](.github/workflows/action-b.yml) workflow
-for test azure, helm
+* [action-a](../../tree/action-a) for build and push Docker images to Github Packages
+* [action-b](../../tree/action-b) for test azure, helm
