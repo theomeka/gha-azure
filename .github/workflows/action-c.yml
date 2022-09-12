@@ -20,5 +20,4 @@ jobs:
       with:
         azcliversion: 2.30.0
         inlineScript: |
-          az account show
-          az storage -h
+          az group create --name ohm-gha --location eastus
