@@ -1,4 +1,4 @@
 # GitHub Action for test deploy service on Azure
 
-* [action-a](../action-a)
-* [action-b](../action-b)
+* [action-a](../tree/action-a)
+* [action-b](../tree/action-b)
