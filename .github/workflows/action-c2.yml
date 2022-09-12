@@ -10,6 +10,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
+        env:
+          SEETEXT: ${{github.event.label.name}}
         run: |
-          echo $(github.event.label.name)
+          echo $SEETEXT
 
