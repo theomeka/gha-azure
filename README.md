@@ -2,3 +2,4 @@
 
 * [action-a](../../tree/action-a) for build and push Docker images to Github Packages
 * [action-b](../../tree/action-b) for test azure, helm
+* [action-c](../../tree/action-c) for create and destroy Azure Kubernetes Service (AKS)
