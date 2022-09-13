@@ -22,7 +22,7 @@ jobs:
           azcliversion: 2.30.0
           inlineScript: |
             az group create --name ohm-gha --location eastus
-            az aks create --resource-group ohm-gha --name ohm-gha --node-count 1 --generate-ssh-keys
+            az aks create --resource-group ohm-gha --name ohm-gha --node-count 1 --generate-ssh-keys --tags "project=ohm-naja"
           
   destroy-up-azure-aks:
     runs-on: ubuntu-latest
