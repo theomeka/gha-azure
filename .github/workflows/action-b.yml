@@ -3,6 +3,8 @@
 name: test azure & helm
 on:
   push:
+    paths:
+      - "**action-b**"
 
 jobs:
   setup-up-azure-resources:
