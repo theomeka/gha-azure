@@ -39,11 +39,11 @@ jobs:
         run: |
           az group delete --name ohm-gha  --yes
       - name: Destroy Azure Resource group 2
-        uses: azure/CLI@v1
-        with:
-          azcliversion: 2.30.0
-          inlineScript: |
-            az group delete --name MC_ohm-gha_ohm-gha_eastus --yes
-#         if: success()
-#         run: |
-#           az group delete --name MC_ohm-gha_ohm-gha_eastus --yes
+#         uses: azure/CLI@v1
+#         with:
+#           azcliversion: 2.30.0
+#           inlineScript: |
+#             az group delete --name MC_ohm-gha_ohm-gha_eastus --yes
+        if: success()
+        run: |
+          az group delete --name MC_ohm-gha_ohm-gha_eastus --yes
