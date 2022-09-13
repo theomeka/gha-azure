@@ -34,8 +34,11 @@ jobs:
         uses: azure/login@v1
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
-      - name: Destroy Azure environment
+      - name: Destroy Azure Resource group 1
         if: success()
         run: |
           az group delete --name ohm-gha  --yes
+      - name: Destroy Azure Resource group 2
+        if: success()
+        run: |
           az group delete --name MC_ohm-gha_ohm-gha_eastus --yes
