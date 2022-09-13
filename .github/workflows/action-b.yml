@@ -23,14 +23,14 @@ jobs:
           cluster-name: 'ohm-gha'
           # admin: 'false'
           # use-kubelogin: 'true'  
-      - uses: azure/setup-kubectl@v3
-        with:
-          version: 'latest' # default is latest stable
-        id: install
-
-      - name: test with kubectl
-        run: |
-          kubectl get node
+      # # for test with kubectl
+      # - uses: azure/setup-kubectl@v3
+      #   with:
+      #     version: 'latest' # default is latest stable
+      #   id: install
+      # - name: test with kubectl
+      #   run: |
+      #     kubectl get node
 
       - name: setup helm
         uses: azure/setup-helm@v3
@@ -38,4 +38,8 @@ jobs:
           version: 'latest'
           token: ${{ secrets.GITHUB_TOKEN }} # only needed if version is 'latest'
         id: install_helm
+      
+      - name: run helm
+        run: |
+          helm upgrade test ./helm --install --dry-run
       
