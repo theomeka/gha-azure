@@ -16,3 +16,5 @@ jobs:
       - name: test cmd
         run: whoami
         
+      - name: test docker ps
+        run: docker ps
