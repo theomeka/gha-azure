@@ -1,5 +1,7 @@
-# GitHub Action for test deploy service on Azure
+# Action-c
 
-* [action-a](../../tree/action-a) for build and push Docker images to Github Packages
-* [action-b](../../tree/action-b) for test azure, helm
-* [action-c](../../tree/action-c) for create and destroy Azure Kubernetes Service (AKS)
+* [action-c](.github/workflow/action-c.yaml) workflow for create and destroy Azure Kubernetes Service (AKS).
+
+* [Configure Azure credentials](https://github.com/Azure/actions-workflow-samples/tree/master/Kubernetes) before applies labels.
+* Applies a "spin up environment" label to a [pull request](../../pull/3), for set up our resources on an Azure environment.
+* Applies a "destroy environment" label to a [pull request](../../pull/3), for tear down any resources that are running on our Azure environment.
