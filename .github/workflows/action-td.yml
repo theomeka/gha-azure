@@ -1,6 +1,6 @@
 #
 
-name: test github runner
+name: test github runner_cmd
 on:
   push:
     paths:
