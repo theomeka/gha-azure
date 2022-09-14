@@ -12,5 +12,10 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
-      - run: |
-          pwd
+      
+      - name: get pod
+        uses: steebchen/kubectl@v2.0.0
+        with:
+          config: ${{ secrets.KUBE_CONFIG_DATA }}
+          version: v1.21.0 # specify kubectl binary version explicitly
+          command: get pods
