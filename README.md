@@ -1,7 +1,6 @@
-# Action-c
+# Action-d
 
-* [action-c](.github/workflow/action-c.yaml) workflow for create and destroy Azure Kubernetes Service (AKS).
+* [action-d](.github/workflow/action-d.yaml) workflow for 
 
-* [Configure Azure credentials](https://github.com/Azure/actions-workflow-samples/tree/master/Kubernetes) before applies labels.
-* Applies a "spin up environment" label to a [pull request](../../pull/3), for set up our resources on an Azure environment.
-* Applies a "destroy environment" label to a [pull request](../../pull/3), for tear down any resources that are running on our Azure environment.
+* [Adding self-hosted runners](https://docs.github.com/en/actions/hosting-your-own-runners/adding-self-hosted-runners) is installation document.
+* can see list of runners in [setttings/action/runners](../../settings/actions/runners)
