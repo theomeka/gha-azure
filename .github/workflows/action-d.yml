@@ -12,16 +12,7 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
-      - name: setting up docker rootless
-        run: docker context use rootless
-  test_runner:
-    runs-on: [self-hosted, linux, x64]
-    needs: [setup_env]
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-      - name: setting up docker rootless
-        run: docker context use rootless
+
       - name: get pod
         uses: steebchen/kubectl@v2.0.0
         with:
