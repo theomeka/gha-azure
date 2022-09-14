@@ -17,4 +17,6 @@ jobs:
         run: whoami
         
       - name: test docker ps
-        run: docker ps
+        run: |
+          export DOCKER_HOST=unix:///run/user/1000/docker.sock
+          docker ps
