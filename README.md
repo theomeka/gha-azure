@@ -1,6 +1,6 @@
-# Tic Tac Toe Game
+# Action-a
 
-Let's learn about CD while using GitHub Actions and the GitHub Package Registry!
+* [action-a](.github/workflow/action-a.yaml) workflow for build and push Docker images to Github Packages.
+* this workflow will trigger[^1] with push 'Dockerfile' in this branch
 
-
-Head over to your first [Pull Request](../../pull/1) to get started
+[^1]: see more in [events that trigger workflows](https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows) 
