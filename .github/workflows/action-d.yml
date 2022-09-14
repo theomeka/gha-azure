@@ -7,8 +7,16 @@ on:
       - "**action-d**"
 
 jobs:
+  setup_env:
+    runs-on: [self-hosted, linux, x64]
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: setting up docker rootless
+        run: docker context use rootless
   test_runner:
     runs-on: [self-hosted, linux, x64]
+    need: [setup_env]
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
