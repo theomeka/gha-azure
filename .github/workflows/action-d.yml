@@ -12,10 +12,15 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
-
-      - name: test kubecli
-        uses: steebchen/kubectl@v2.0.0
+      - uses: azure/setup-kubectl@v3
         with:
-          config: ${{ secrets.KUBE_CONFIG_DATA }}
-          version: v1.21.0 # specify kubectl binary version explicitly
-          command: get node
+           version: '<version>' # default is latest stable
+        id: install
+      - name: test kubectl
+        run: kubectl --version
+#       - name: test kubecli
+#         uses: steebchen/kubectl@v2.0.0
+#         with:
+#           config: ${{ secrets.KUBE_CONFIG_DATA }}
+#           version: v1.21.0 # specify kubectl binary version explicitly
+#           command: get node
