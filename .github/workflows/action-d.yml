@@ -19,7 +19,7 @@ jobs:
            version: 'latest' # default is latest stable
         id: install
       - name: test kubectl
-        run: kubectl node
+        run: kubectl get node
 #       - name: test kubecli
 #         uses: steebchen/kubectl@v2.0.0
 #         with:
