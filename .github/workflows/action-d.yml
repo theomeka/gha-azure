@@ -9,6 +9,8 @@ on:
 jobs:
   setup_env:
     runs-on: [self-hosted, linux, x64]
+    env:
+      KUBECONFIG: "kubeconfig/kubeconfig.conf"
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
@@ -17,7 +19,7 @@ jobs:
            version: 'latest' # default is latest stable
         id: install
       - name: test kubectl
-        run: kubectl --help
+        run: kubectl node
 #       - name: test kubecli
 #         uses: steebchen/kubectl@v2.0.0
 #         with:
