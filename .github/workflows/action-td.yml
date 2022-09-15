@@ -18,10 +18,10 @@ jobs:
       - name: test cmd
         run: whoami
         
-      - name: test docker ps
-        run: |
-          docker context use rootless
-          docker ps
+#       - name: test docker ps
+#         run: |
+#           docker context use rootless
+#           docker ps
           
       - name: test kubectl
         run: kubectl get node
