@@ -1,0 +1,28 @@
+#
+
+name: test github runner , set kube environment
+on:
+  push:
+    paths:
+      - "**action-d2**"
+
+jobs:
+  test_runner:
+    runs-on: [self-hosted, linux, x64]
+    env:
+      KUBECONFIG: "kubeconfig/kubeconfig.conf"
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      
+      - uses: azure/setup-kubectl@v3
+        with:
+           version: 'latest' # default is latest stable
+        id: install_kubectl
+
+      - uses: azure/k8s-create-secret@v2
+        with:
+          namespace: 'testtest'
+          secret-name: docker-registry
+          secret-type: regcred
+          string-data: ${{ secrets.DOCKER_CONFIG }}
