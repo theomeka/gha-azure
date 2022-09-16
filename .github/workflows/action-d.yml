@@ -32,4 +32,5 @@ jobs:
       
       - name: run helm
         run: |
-          helm upgrade test ./helm --install --dry-run
+          # helm upgrade test ./helm --install --dry-run
+          helm upgrade test ./helm --install -n testtest --create-namespace
