@@ -27,6 +27,7 @@ jobs:
         with:
           namespace: 'testtest'
           secret-name: docker-registry
+          secret-type: regcred
           string-data: ${{ secrets.DOCKER_CONFIG }}      
       
       - name: setup helm
