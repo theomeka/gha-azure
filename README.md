@@ -1,8 +1,8 @@
 # Action-d
 
 ### workflow
-* [action-d](.github/workflow/action-d.yaml) workflow for test github runner.
-* To specify a self-hosted runner for your job, configure [runs-on](.github/workflows/action-d.yml#runs-on) in your workflow with self-hosted **runner labels**.
+* [action-d](.github/workflows/action-d1.yml) workflow for test github runner.
+* To specify a self-hosted runner for your job, configure [runs-on](.github/workflows/action-d1.yml#runs-on) in your workflow with self-hosted **runner labels**.
 
 
 ### Setting up self-hosted runner [^1]
