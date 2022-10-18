@@ -1,9 +1,9 @@
 # Action-a
 
-* [action-a](.github/workflows/action-a.yaml) workflow for build and push Docker images to Github Packages.
+* [action-a](.github/workflows/action-a.yml) workflow for build and push Docker images to Github Packages.
 * Workflow will trigger[^1] with push 'Dockerfile' in this branch
 * After committing the Dockerfile, See the progress at [Actions](../../actions)
-* If workflow ruu successful, see your image in [GitHub Packages](https://github.com/theomeka/gha-azure/pkgs/container/gha-azure%2Ftic-tac-toe)
+* If workflow run successful, see your image in [GitHub Packages](https://github.com/theomeka/gha-azure/pkgs/container/gha-azure%2Ftic-tac-toe)
 
 
 
