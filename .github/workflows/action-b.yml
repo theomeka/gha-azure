@@ -1,4 +1,4 @@
-#
+### action-b.yml
 
 name: test azure & helm
 on:
@@ -12,17 +12,21 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
+        
+      ## login to Azure
       - name: Azure login
         uses: azure/login@v1
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
-
+          
+      ## set up kubeconfig with resource-group and cluster-name
       - uses: azure/aks-set-context@v3
         with:
           resource-group: 'ohm-gha'
           cluster-name: 'ohm-gha'
           # admin: 'false'
           # use-kubelogin: 'true'  
+      
       # # for test with kubectl
       # - uses: azure/setup-kubectl@v3
       #   with:
@@ -32,6 +36,7 @@ jobs:
       #   run: |
       #     kubectl get node
 
+      ## setup helm for uses in next
       - name: setup helm
         uses: azure/setup-helm@v3
         with:
@@ -39,6 +44,7 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }} # only needed if version is 'latest'
         id: install_helm
       
+      ## run helm 
       - name: run helm
         run: |
           helm upgrade test ./helm --install --dry-run
